@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import usersService from './services/users'
 
 const User = ({ token, setToken }) => {
@@ -15,6 +16,11 @@ const User = ({ token, setToken }) => {
 			<button onClick={logout}>Log out</button>
 		</div>
 	)
+}
+
+User.propTypes = {
+    token: PropTypes.object.isRequired,
+    setToken: PropTypes.func.isRequired
 }
 
 const Login = ({ setToken, setError, display }) => {

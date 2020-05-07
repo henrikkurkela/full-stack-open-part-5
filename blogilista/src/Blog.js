@@ -26,7 +26,7 @@ const Blog = ({ blog, update, token }) => {
 				<p onClick={() => setShowInfo(!showInfo)}>{blog.title} {blog.author}</p>
 			</div>
 		)
-	} else {
+	} else if (token.username === blog.user.username) {
 		return (
 			<div>
 				<p onClick={() => setShowInfo(!showInfo)}>{blog.title} {blog.author} {blog.url} {blog.likes} {blog.user.name}</p>
@@ -34,7 +34,14 @@ const Blog = ({ blog, update, token }) => {
 				<button onClick={remove}>Remove</button>
 			</div>
 		)
-	}
+	} else {
+        return (
+			<div>
+				<p onClick={() => setShowInfo(!showInfo)}>{blog.title} {blog.author} {blog.url} {blog.likes} {blog.user.name}</p>
+				<button onClick={like}>Like</button>
+			</div>
+		)
+    }
 }
 
 const Blogs = ({ token, setError }) => {
@@ -86,10 +93,11 @@ const Newblog = ({ token, blogs, setBlogs, setError, setDisplay }) => {
 
 	const create = (event) => {
 		event.preventDefault()
-		blogsService.newBlog({ title, author, url }, token).then((response) => {
+		blogsService.newBlog({ title, author, url, likes: 0 }, token).then((response) => {
 			if (response.status === 201) {
 				setError(`${response.data.title} by ${response.data.author} added`)
-				setTimeout(() => setError(null), 2000)
+                setTimeout(() => setError(null), 2000)
+                console.log(response.data)
 				setBlogs(blogs.concat(response.data))
 				setDisplay(false)
 			} else {
