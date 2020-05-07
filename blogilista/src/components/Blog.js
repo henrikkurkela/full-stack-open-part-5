@@ -97,7 +97,6 @@ const Newblog = ({ token, blogs, setBlogs, setError, setDisplay }) => {
             if (response.status === 201) {
                 setError(`${response.data.title} by ${response.data.author} added`)
                 setTimeout(() => setError(null), 2000)
-                console.log(response.data)
                 setBlogs(blogs.concat(response.data))
                 setDisplay(false)
             } else {
@@ -115,13 +114,13 @@ const Newblog = ({ token, blogs, setBlogs, setError, setDisplay }) => {
             <h2>Add new blog</h2>
             <form onSubmit={create}>
                 <div>
-					title: <input value={title} onChange={(event) => { setTitle(event.target.value) }} />
+					title: <input id='title' value={title} onChange={(event) => { setTitle(event.target.value) }} />
                 </div>
                 <div>
-					author: <input value={author} onChange={(event) => { setAuthor(event.target.value) }} />
+					author: <input id='author' value={author} onChange={(event) => { setAuthor(event.target.value) }} />
                 </div>
                 <div>
-					url: <input value={url} onChange={(event) => { setUrl(event.target.value) }} />
+					url: <input id='url' value={url} onChange={(event) => { setUrl(event.target.value) }} />
                 </div>
                 <div>
                     <button type='submit'>Create</button>
@@ -150,5 +149,6 @@ const Togglable = (props) => {
 
 export default {
     Blogs: Blogs,
-    Blog: Blog
+    Blog: Blog,
+    Newblog: Newblog
 }

@@ -5,6 +5,7 @@
   "dependencies": {
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
+    "flush-promises": "^1.0.2",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -36,6 +37,7 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
+    "cypress": "^4.5.0",
     "eslint-plugin-jest": "^23.9.0"
   }
 }
