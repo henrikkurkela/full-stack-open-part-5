@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import blogsService from './services/blogs'
+import blogsService from '../services/blogs'
 
 const Blog = ({ blog, update, token }) => {
     const [showInfo, setShowInfo] = useState(false)
 
-    const like = () => {
+    const like = async () => {
         blogsService
             .likeBlog(blog)
             .then(() => {
@@ -149,5 +149,6 @@ const Togglable = (props) => {
 }
 
 export default {
-    Blogs: Blogs
+    Blogs: Blogs,
+    Blog: Blog
 }

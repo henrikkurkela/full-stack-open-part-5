@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import Blog from './Blog'
-import User from './User'
+import Blog from './components/Blog'
+import User from './components/User'
 
 const Error = ({ error = null }) => {
     if (error === null) {

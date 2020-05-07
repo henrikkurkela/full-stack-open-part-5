@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import usersService from './services/users'
+import usersService from '../services/users'
 
 const User = ({ token, setToken }) => {
     const logout = () => {
