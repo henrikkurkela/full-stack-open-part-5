@@ -46,9 +46,9 @@ test('clicking the element works', async () => {
 
 function tick() {
     return new Promise(resolve => {
-      setTimeout(resolve, 0);
+        setTimeout(resolve, 0)
     })
-  }
+}
 
 test('clicking the like button works', async () => {
     const mockHandler = jest.fn()
@@ -75,7 +75,7 @@ test('Newblog updates parent state and calls onSubmit', async () => {
     const createBlog = jest.fn()
 
     const component = render(
-        <Blogs.Newblog blogs = {[]} token={token} setBlogs={createBlog} setError={() => {return}} setDisplay={(value) => value} />
+        <Blogs.Newblog blogs={[]} token={token} setBlogs={createBlog} setError={() => { return }} setDisplay={(value) => value} />
     )
 
     const title = component.container.querySelector('#title')
