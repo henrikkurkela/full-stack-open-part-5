@@ -6,7 +6,7 @@ const getAll = () => {
 }
 
 const newBlog = (blog, token) => {
-    const config = {headers: {'Authorization': `bearer ${token.token}`}}
+    const config = { headers: { 'Authorization': `bearer ${token.token}` } }
     return axios.post(baseUrl, blog, config)
 }
 
@@ -17,7 +17,7 @@ const likeBlog = (blog) => {
 }
 
 const deleteBlog = (blog, token) => {
-    const config = {headers: {'Authorization': `bearer ${token.token}`}}
+    const config = { headers: { 'Authorization': `bearer ${token.token}` } }
     return axios.delete(`${baseUrl}/${blog.id}`, config)
 }
 
