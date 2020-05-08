@@ -78,7 +78,7 @@ const Blogs = ({ token, setError }) => {
             {blogs.sort((a, b) => b.likes - a.likes).map(blog =>
                 <Blog key={blog.id} blog={blog} update={updateBlogs} token={token} />
             )}
-            <Togglable display={showNewblog} setDisplay={setShowNewblog} name='new blog'>
+            <Togglable domId='show-new-blog-button' display={showNewblog} setDisplay={setShowNewblog} name='new blog'>
                 <Newblog token={token} blogs={blogs} setBlogs={setBlogs} setError={setError} setDisplay={setShowNewblog} />
             </Togglable>
         </div>
@@ -134,14 +134,14 @@ const Togglable = (props) => {
     if (props.display === false) {
         return (
             <div>
-                <button onClick={() => props.setDisplay(true)}>Show {props.name}</button>
+                <button id={props.domId} onClick={() => props.setDisplay(true)}>Show {props.name}</button>
             </div>
         )
     } else {
         return (
             <div>
                 {props.children}
-                <button onClick={() => props.setDisplay(false)}>Hide {props.name}</button>
+                <button id={props.domId} onClick={() => props.setDisplay(false)}>Hide {props.name}</button>
             </div>
         )
     }

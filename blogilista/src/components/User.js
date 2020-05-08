@@ -50,13 +50,13 @@ const Login = ({ setToken, setError, display }) => {
             <h2>Login</h2>
             <form onSubmit={login}>
                 <div>
-					username: <input value={username} onChange={(event) => { setUsername(event.target.value) }} />
+					username: <input id='username' value={username} onChange={(event) => { setUsername(event.target.value) }} />
                 </div>
                 <div>
-					password: <input type='password' value={password} onChange={(event) => { setPassword(event.target.value) }} />
+					password: <input id='password' type='password' value={password} onChange={(event) => { setPassword(event.target.value) }} />
                 </div>
                 <div>
-                    <button type='submit'>Login</button>
+                    <button id='login-button' type='submit'>Login</button>
                 </div>
             </form>
         </div>
